@@ -98,4 +98,4 @@ This project is released under the MIT License.
 Author
 
 NEXTECHARCHITECT
-Smart Contract Developer - Solidity, Foundry, Web3 Engineering
+(Smart Contract Developer - Solidity, Foundry, Web3 Engineering).
