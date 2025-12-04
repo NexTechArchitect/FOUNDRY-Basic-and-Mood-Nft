@@ -80,9 +80,13 @@ Purpose and Intended Use:-
 This repository provides a compact, production-style demonstration environment for:
 
 ● practicing ERC-721 development
+
 ● mastering Foundry workflows
+
 ● understanding on-chain metadata design
+
 ● presenting clean, review-ready smart contract work
+
 ● strengthening a professional Web3 development portfolio
 
 The implementation avoids unnecessary complexity while delivering meaningful examples aligned with industry expectations for junior and mid-level smart contract roles.
