@@ -47,7 +47,19 @@ Key Concepts Demonstrated:-
 ● Clear project structure mirroring production-grade organization
 
 
+script/
 
+DeploySisoToken.s.sol 
+
+MintSisoToken.s.sol
+
+BurnSisoToken.s.sol
+
+PauseSisoToken.s.sol
+
+UnpauseSisoToken.s.sol
+
+SisoAllowance.s.sol
 Project Structure:-
 
 src/
