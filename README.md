@@ -31,12 +31,19 @@ MoodNFT Contract
 Key Concepts Demonstrated:-
 
 ● ERC-721 token standard implementation
+
 ● Stateful NFT behavior through enums
+
 ● SVG-based image rendering stored fully on-chain
+
 ● Base64 encoding for metadata packaging
+
 ● Data-URI JSON construction for tokenURI responses
+
 ● Foundry scripting for deployment and interaction
+
 ● Isolated test architecture for validation and reliability
+
 ● Clear project structure mirroring production-grade organization
 
 
@@ -56,37 +63,6 @@ script/
 test/
  BasicNftTest.t.sol
  MoodNftTest.t.sol
-
-
-Development and Workflow:-
-
-Installation:-
-
-Install Foundry:
-
-curl -L https://foundry.paradigm.xyz | bash
-foundryup
-
-Build
-
-forge build
-
-Run Tests
-
-forge test
-
-Gas Snapshot
-
-forge snapshot
-
-Script Execution
-
-Deploy or interact with any script using:
-
-forge script <script-path> --rpc-url $SEPOLIA_RPC_URL --private-key $PRIVATE_KEY --broadcast
-
-This framework allows clean, repeatable automation for minting, deployment, and state updates across both contracts.
-
 
 
 BasicNFT Summary:-
@@ -120,15 +96,3 @@ Author
 
 NEXTECHARCHITECT
 Smart Contract Developer - Solidity, Foundry, Web3 Engineering
-
-
----
-
-If you'd like, I can also generate:
-● an Etherscan verification section
-● CI pipeline badges
-● a contribution section
-● a visuals section for NFT previews
-● a “Technical Deep Dive” appendix
-
-Just tell me and I’ll refine further.
