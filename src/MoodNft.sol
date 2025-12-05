@@ -31,7 +31,6 @@ contract MoodNft is ERC721 {
         s_happySvgImageUri = happySvgImageUri;
     }
 
-    // Mint NFT and return tokenId
     function mintNft() public returns (uint256) {
         uint256 newTokenId = s_tokenCounter;
         _safeMint(msg.sender, newTokenId);
@@ -39,8 +38,6 @@ contract MoodNft is ERC721 {
         s_tokenCounter++;
         return newTokenId;
     }
-
-    // Flip mood (SAD <-> HAPPY)
     function flipMood(uint256 tokenId) public {
         if (msg.sender != ownerOf(tokenId)) {
             revert MoodNft_cantFlipMoodIfNotOwner(
@@ -56,13 +53,10 @@ contract MoodNft is ERC721 {
             s_tokenIdToMood[tokenId] = Mood.SAD;
         }
     }
-
-    // Base64 JSON prefix
     function _baseURI() internal pure override returns (string memory) {
         return "data:application/json;base64,";
     }
 
-    // Metadata generator
     function tokenURI(
         uint256 tokenId
     ) public view override returns (string memory) {
