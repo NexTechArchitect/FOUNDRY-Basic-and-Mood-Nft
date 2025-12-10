@@ -90,7 +90,6 @@ This repository provides a compact, production-style demonstration environment f
 
 The implementation avoids unnecessary complexity while delivering meaningful examples aligned with industry expectations for junior and mid-level smart contract roles.
 
-
 License:-
 
 This project is released under the MIT License.
