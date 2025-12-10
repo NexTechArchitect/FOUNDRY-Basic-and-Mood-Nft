@@ -1,5 +1,4 @@
-
-Advanced NFT Collection — BasicNFT & MoodNFT
+ NFT Collection —- BasicNFT & MoodNFT
 
 A dual-contract NFT project built with Foundry, designed to demonstrate clean ERC-721 architecture, on-chain metadata handling, SVG-based dynamic NFTs, and professional scripting workflows.
 Both contracts are isolated, testable, and structured for real-world practice in smart contract development and portfolio presentation.
