@@ -13,7 +13,7 @@ contract BasicNftTest is Test {
     }
 
     function testInitialTokenCounterIsZero() public {
-        uint256 counter = basicNft.balanceOf(USER); // should be 0 before mint
+        uint256 counter = basicNft.balanceOf(USER); 
         assertEq(counter, 0);
     }
       /minting nft
@@ -27,7 +27,7 @@ contract BasicNftTest is Test {
         assertEq(basicNft.ownerOf(0), USER); // USER owns token 0
         assertEq(basicNft.tokenURI(0), uri); // URI is stored correctly
     }
-       //check multiple minting is working
+
     function testMultipleMintsIncreaseCounter() public {
         vm.prank(USER);
         basicNft.mintNft("ipfs://uri1.json");
