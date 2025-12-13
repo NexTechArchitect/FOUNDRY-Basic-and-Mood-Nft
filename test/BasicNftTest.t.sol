@@ -24,7 +24,7 @@ contract BasicNftTest is Test {
         uint256 tokenId = basicNft.mintNft(uri);
 
         assertEq(tokenId, 0); 
-        assertEq(basicNft.ownerOf(0), USER); // USER owns token 0
+        assertEq(basicNft.ownerOf(0), USER); 
         assertEq(basicNft.tokenURI(0), uri); 
     }
 
