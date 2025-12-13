@@ -25,7 +25,7 @@ contract BasicNftTest is Test {
 
         assertEq(tokenId, 0); 
         assertEq(basicNft.ownerOf(0), USER); // USER owns token 0
-        assertEq(basicNft.tokenURI(0), uri); // URI is stored correctly
+        assertEq(basicNft.tokenURI(0), uri); 
     }
 
     function testMultipleMintsIncreaseCounter() public {
