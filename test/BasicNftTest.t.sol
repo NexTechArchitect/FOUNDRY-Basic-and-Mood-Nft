@@ -23,7 +23,7 @@ contract BasicNftTest is Test {
         vm.prank(USER);
         uint256 tokenId = basicNft.mintNft(uri);
 
-        assertEq(tokenId, 0); // first NFT has ID 0
+        assertEq(tokenId, 0); 
         assertEq(basicNft.ownerOf(0), USER); // USER owns token 0
         assertEq(basicNft.tokenURI(0), uri); // URI is stored correctly
     }
