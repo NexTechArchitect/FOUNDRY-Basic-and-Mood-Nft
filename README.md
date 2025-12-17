@@ -10,7 +10,6 @@
     </a>
     <img src="https://img.shields.io/badge/Storage-On--Chain_SVG-9cf?style=for-the-badge&logo=ipfs&logoColor=white" />
     <img src="https://img.shields.io/badge/Framework-Foundry-BE5212?style=for-the-badge&logo=foundry&logoColor=white" />
-    <img src="https://img.shields.io/badge/Encoding-Base64_Utils-lightgrey?style=for-the-badge&logo=json&logoColor=black" />
   </p>
 
   <h3>🎭 A Dual-Contract Exploration of Digital Ownership</h3>
