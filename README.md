@@ -8,7 +8,6 @@
     <a href="https://github.com/NexTechArchitect/FOUNDRY-Basic-and-Mood-Nft">
       <img src="https://img.shields.io/badge/Standard-ERC--721-ff69b4?style=for-the-badge&logo=ethereum&logoColor=white" />
     </a>
-    <img src="https://img.shields.io/badge/Storage-On--Chain_SVG-9cf?style=for-the-badge&logo=ipfs&logoColor=white" />
     <img src="https://img.shields.io/badge/Framework-Foundry-BE5212?style=for-the-badge&logo=foundry&logoColor=white" />
   </p>
 
