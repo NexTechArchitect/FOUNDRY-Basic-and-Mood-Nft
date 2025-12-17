@@ -1,99 +1,177 @@
- NFT Collection —- BasicNFT & MoodNFT
 
-A dual-contract NFT project built with Foundry, designed to demonstrate clean ERC-721 architecture, on-chain metadata handling, SVG-based dynamic NFTs, and professional scripting workflows.
-Both contracts are isolated, testable, and structured for real-world practice in smart contract development and portfolio presentation.
+<div align="center">
+  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=500&size=30&pause=1000&color=8A2BE2&center=true&vCenter=true&width=1000&height=100&lines=NFT+Collection+Studio;Basic+ERC-721+%7C+Dynamic+Mood+NFT;On-Chain+SVG+Rendering;Stateful+Token+Metadata" alt="Typing Effect" />
+
+  <br/>
+
+  <p>
+    <a href="https://github.com/NexTechArchitect/FOUNDRY-Basic-and-Mood-Nft">
+      <img src="https://img.shields.io/badge/Standard-ERC--721-ff69b4?style=for-the-badge&logo=ethereum&logoColor=white" />
+    </a>
+    <img src="https://img.shields.io/badge/Storage-On--Chain_SVG-9cf?style=for-the-badge&logo=ipfs&logoColor=white" />
+    <img src="https://img.shields.io/badge/Framework-Foundry-BE5212?style=for-the-badge&logo=foundry&logoColor=white" />
+    <img src="https://img.shields.io/badge/Encoding-Base64_Utils-lightgrey?style=for-the-badge&logo=json&logoColor=black" />
+  </p>
+
+  <h3>🎭 A Dual-Contract Exploration of Digital Ownership</h3>
+  <p width="80%">
+    <b>From static assets to dynamic, living tokens.</b><br/>
+    This project demonstrates the evolution of NFTs, featuring a classic IPFS implementation alongside a fully dynamic, on-chain SVG engine.
+  </p>
+
+  <br/>
+
+  <h3>🎨 Collection Navigation</h3>
+  <p>
+    <a href="#-the-collection"><strong>🖼 The Collection</strong></a> &nbsp;|&nbsp;
+    <a href="#-technical-deep-dive"><strong>🧠 Deep Dive</strong></a> &nbsp;|&nbsp;
+    <a href="#-live-deployments"><strong>🌐 Networks</strong></a> &nbsp;|&nbsp;
+    <a href="#-metadata-architecture"><strong>🧩 Metadata</strong></a> &nbsp;|&nbsp;
+    <a href="#-educational-objectives"><strong>🎓 Objectives</strong></a>
+  </p>
+
+</div>
+
+---
+
+## 🖼 The Collection
+
+This repository houses two distinct implementations, representing the "History" and "Future" of NFT development.
+
+<table width="100%">
+  <tr>
+    <td width="50%" valign="top">
+      <h3 align="center">🐶 BasicNFT</h3>
+      <p align="center"><i>"The Foundation"</i></p>
+      <ul>
+        <li><b>Type:</b> Static ERC-721.</li>
+        <li><b>Storage:</b> Off-chain (IPFS/Centralized).</li>
+        <li><b>Concept:</b> A minimal implementation representing the standard PFP (Profile Picture) model.</li>
+        <li><b>Key Lesson:</b> Understanding `tokenURI` pointer logic and sequential minting.</li>
+      </ul>
+    </td>
+    <td width="50%" valign="top">
+      <h3 align="center">🎭 MoodNFT</h3>
+      <p align="center"><i>"The Evolution"</i></p>
+      <ul>
+        <li><b>Type:</b> Dynamic & Interactive.</li>
+        <li><b>Storage:</b> 100% On-Chain (SVG).</li>
+        <li><b>Concept:</b> A stateful NFT that reflects emotion. Owners can flip the state from <code>SAD</code> to <code>HAPPY</code>.</li>
+        <li><b>Key Lesson:</b> Base64 encoding, JSON construction in Solidity, and SVG image generation.</li>
+      </ul>
+    </td>
+  </tr>
+</table>
+
+---
+
+## 🌐 Live Deployments (Sepolia)
+
+Verified contracts deployed on the Sepolia Testnet.
+
+| **Collection** | **Contract Address** | **View on Etherscan** |
+| :--- | :--- | :--- |
+| **BasicNFT** | `0xb41965Bb58aF40c99B1d539e66518bCa16769bf7` | [🔎 Explorer](https://sepolia.etherscan.io/address/0xb41965Bb58aF40c99B1d539e66518bCa16769bf7) |
+| **MoodNFT** | `0x01721d6502547faFD3049BE60b1485B12407f58B` | [🔎 Explorer](https://sepolia.etherscan.io/address/0x01721d6502547faFD3049BE60b1485B12407f58B) |
+
+---
+
+## 🧠 Technical Deep Dive
+
+### 1. On-Chain Metadata (MoodNFT)
+Unlike traditional NFTs that link to a URL (which can go offline), **MoodNFT** generates its image using code.
+* The Smart Contract constructs an **SVG** (Scalable Vector Graphic) string.
+* It utilizes `Base64` encoding to bundle the image and JSON metadata together.
+* The browser renders this `data:application/json;base64,...` string directly, ensuring the NFT lives as long as Ethereum exists.
+
+### 2. State Flipping Logic
+The NFT has memory. It tracks its current "Mood".
+
+```solidity
+// Simplified Logic
+function flipMood(uint256 tokenId) public {
+    if (s_tokenState[tokenId] == Mood.HAPPY) {
+        s_tokenState[tokenId] = Mood.SAD;
+    } else {
+        s_tokenState[tokenId] = Mood.HAPPY;
+    }
+    // The image URI updates automatically based on this state!
+}
+
+```
+
+---
+
+## 🧩 Metadata Architecture
+
+The **MoodNFT** does not use IPFS. Instead, it constructs the JSON response entirely within the Solidity smart contract.
+
+```mermaid
+graph LR
+    Contract[Smart Contract]
+    State{Check Mood State}
+    SVG[Generate SVG Code]
+    Base64[Base64 Encode]
+    JSON[Construct JSON]
+    URI[Final Data URI]
+
+    Contract --> State
+    State -- Happy --> SVG
+    State -- Sad --> SVG
+    SVG --> Base64
+    Base64 -- "image_data" --> JSON
+    JSON --> Base64
+    Base64 --> URI
+
+```
+
+> **Result:** A fully decentralized, permanent NFT that exists solely as code on the blockchain.
+
+---
+
+## 🎓 Educational Objectives
+
+This project was built to master the core competencies of a Senior Smart Contract Engineer:
+
+* [x] **ERC-721 Standards:** Implementing `tokenURI`, `ownerOf`, and `approve` flows manually.
+* [x] **Low-Level Encoding:** Using `Base64` libraries to handle string manipulation in Solidity.
+* [x] **Gas Optimization:** Storing SVG parts as `constant` or `immutable` to reduce deployment costs.
+* [x] **Testing Mastery:** Writing unit tests to verify that the generated Base64 strings decode into valid JSON.
+
+---
+
+<div align="center">
 
 
-Overview:-
-
-This repository delivers two independent NFT implementations:
-
-BasicNFT:-
-
-A minimal and fully self-contained ERC-721 token that stores image URIs directly on-chain. It represents the foundational structure of an NFT contract, suitable for understanding token IDs, minting flow, metadata retrieval, and wallet interactions.
-
-MoodNFT:-
-
-A more expressive, interactive NFT that renders SVG images on-chain and allows its owner to switch the NFT’s state between “Happy” and “Sad.”
-This contract demonstrates dynamic metadata, encoded SVG generation, Base64 utilities, and stateful NFT behavior without relying on IPFS or external storage.
 
 
-Contract Addresses (Sepolia Testnet)
 
-BasicNFT Contract
-0xb41965Bb58aF40c99B1d539e66518bCa16769bf7
-
-MoodNFT Contract
-0x01721d6502547faFD3049BE60b1485B12407f58B
+<img src="https://raw.githubusercontent.com/rajput2107/rajput2107/master/Assets/Developer.gif" width="60" />
 
 
-Key Concepts Demonstrated:-
-
-● ERC-721 token standard implementation
-
-● Stateful NFT behavior through enums
-
-● SVG-based image rendering stored fully on-chain
-
-● Base64 encoding for metadata packaging
-
-● Data-URI JSON construction for tokenURI responses
-
-● Foundry scripting for deployment and interaction
-
-● Isolated test architecture for validation and reliability
-
-● Clear project structure mirroring production-grade organization
 
 
-Project Structure:-
 
-src/
- BasicNft.sol
- MoodNft.sol
-
-script/
- DeployBasicNft.s.sol
- MintBasicNft.s.sol
- DeployMoodNft.s.sol
- InteractMoodNft.s.sol
-
-test/
- BasicNftTest.t.sol
- MoodNftTest.t.sol
+<h3>Engineered by NexTechArchitect</h3>
+<p><i>Smart Contract Developer • Solidity • Web3 Engineering</i></p>
 
 
-BasicNFT Summary:-
-
-The BasicNFT contract focuses on delivering a simplified NFT implementation suitable for onboarding into ERC-721 logic. Each mint operation issues a sequential token ID and binds a fixed image URI to the newly created NFT. The structure is intentionally minimal yet practical for understanding wallet ownership, transfers, and metadata formation.
 
 
-MoodNFT Summary:-
+<a href="https://github.com/NexTechArchitect">
+<img src="https://skillicons.dev/icons?i=github" height="40" />
+</a>
+&nbsp;&nbsp;
+<a href="https://linkedin.com/in/amit-kumar-811a11277">
+<img src="https://skillicons.dev/icons?i=linkedin" height="40" />
+</a>
+&nbsp;&nbsp;
+<a href="https://x.com/itZ_AmiT0">
+<img src="https://skillicons.dev/icons?i=twitter" height="40" />
+</a>
 
-The MoodNFT contract expands NFT behavior into dynamic territory. Instead of static image links, the contract embeds SVG markup directly and encodes metadata using Base64. Each NFT begins in the “Sad” state and can be toggled to “Happy” only by the token owner or an approved operator. This contract illustrates how NFTs can evolve, personalize, or communicate on-chain states purely through logic without external storage.
+</div>
 
+```
 
-Purpose and Intended Use:-
-
-This repository provides a compact, production-style demonstration environment for:
-
-● practicing ERC-721 development
-
-● mastering Foundry workflows
-
-● understanding on-chain metadata design
-
-● presenting clean, review-ready smart contract work
-
-● strengthening a professional Web3 development portfolio
-
-The implementation avoids unnecessary complexity while delivering meaningful examples aligned with industry expectations for junior and mid-level smart contract roles.
-
-License:-
-
-This project is released under the MIT License.
-
-Author
-
-NEXTECHARCHITECT
-(Smart Contract Developer - Solidity, Foundry, Web3 Engineering).
+```
