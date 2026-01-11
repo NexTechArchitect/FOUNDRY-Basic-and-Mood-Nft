@@ -1,38 +1,49 @@
 
 <div align="center">
-  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=500&size=30&pause=1000&color=8A2BE2&center=true&vCenter=true&width=1000&height=100&lines=NFT+Collection+Studio;Basic+ERC-721+%7C+Dynamic+Mood+NFT;On-Chain+SVG+Rendering;Stateful+Token+Metadata" alt="Typing Effect" />
 
-  <br/>
+  <br />
+  <br />
+
+  <img src="https://img.icons8.com/ios-filled/100/9d4edd/nft.png" alt="NFT Logo" />
+
+  <h1 style="font-size: 3rem; margin-bottom: 0;">Dynamic On-Chain NFT Engine</h1>
+
+  <p style="font-size: 1.1rem; color: #b298dc; max-width: 600px;">
+    <strong>From static assets to state-aware, living tokens.</strong><br/>
+    A dual-contract system demonstrating 100% on-chain SVG rendering and dynamic metadata evolution.
+  </p>
 
   <p>
     <a href="https://github.com/NexTechArchitect/FOUNDRY-Basic-and-Mood-Nft">
-      <img src="https://img.shields.io/badge/Standard-ERC--721-ff69b4?style=for-the-badge&logo=ethereum&logoColor=white" />
+      <img src="https://img.shields.io/badge/Standard-ERC--721-2e2e2e?style=for-the-badge&logo=ethereum&logoColor=white" />
     </a>
-    <img src="https://img.shields.io/badge/Framework-Foundry-BE5212?style=for-the-badge&logo=foundry&logoColor=white" />
+    &nbsp;
+    <a href="https://github.com/NexTechArchitect/FOUNDRY-Basic-and-Mood-Nft">
+      <img src="https://img.shields.io/badge/Framework-Foundry-9d4edd?style=for-the-badge&logo=rust&logoColor=white" />
+    </a>
+    &nbsp;
+    <a href="https://github.com/NexTechArchitect/FOUNDRY-Basic-and-Mood-Nft">
+      <img src="https://img.shields.io/badge/Storage-On--Chain-2e2e2e?style=for-the-badge&logo=ipfs&logoColor=white" />
+    </a>
   </p>
 
-  <h3>🎭 A Dual-Contract Exploration of Digital Ownership</h3>
-  <p width="80%">
-    <b>From static assets to dynamic, living tokens.</b><br/>
-    This project demonstrates the evolution of NFTs, featuring a classic IPFS implementation alongside a fully dynamic, on-chain SVG engine.
-  </p>
-
-  <br/>
-
-  <h3>🎨 Collection Navigation</h3>
-  <p>
-    <a href="#-the-collection"><strong>🖼 The Collection</strong></a> &nbsp;|&nbsp;
-    <a href="#-technical-deep-dive"><strong>🧠 Deep Dive</strong></a> &nbsp;|&nbsp;
-    <a href="#-live-deployments"><strong>🌐 Networks</strong></a> &nbsp;|&nbsp;
-    <a href="#-metadata-architecture"><strong>🧩 Metadata</strong></a> &nbsp;|&nbsp;
-    <a href="#-educational-objectives"><strong>🎓 Objectives</strong></a>
-  </p>
+  <br />
 
 </div>
 
 ---
 
-## 🖼 The Collection
+## 📑 Table of Contents
+
+- [🖼️ The Collection Strategy](#-the-collection-strategy)
+- [🌐 Live Deployments](#-live-deployments)
+- [🧠 Technical Deep Dive](#-technical-deep-dive)
+- [🧩 Metadata Architecture](#-metadata-architecture)
+- [🎓 Educational Objectives](#-educational-objectives)
+
+---
+
+## 🖼️ The Collection Strategy
 
 This repository houses two distinct implementations, representing the "History" and "Future" of NFT development.
 
@@ -40,22 +51,22 @@ This repository houses two distinct implementations, representing the "History" 
   <tr>
     <td width="50%" valign="top">
       <h3 align="center">🐶 BasicNFT</h3>
-      <p align="center"><i>"The Foundation"</i></p>
+      <p align="center"><i>"The Foundation (v1)"</i></p>
       <ul>
         <li><b>Type:</b> Static ERC-721.</li>
         <li><b>Storage:</b> Off-chain (IPFS/Centralized).</li>
-        <li><b>Concept:</b> A minimal implementation representing the standard PFP (Profile Picture) model.</li>
-        <li><b>Key Lesson:</b> Understanding `tokenURI` pointer logic and sequential minting.</li>
+        <li><b>Concept:</b> A minimal implementation representing the standard PFP (Profile Picture) model used by collections like BAYC.</li>
+        <li><b>Focus:</b> Understanding `tokenURI` pointer logic and sequential minting.</li>
       </ul>
     </td>
     <td width="50%" valign="top">
       <h3 align="center">🎭 MoodNFT</h3>
-      <p align="center"><i>"The Evolution"</i></p>
+      <p align="center"><i>"The Evolution (v2)"</i></p>
       <ul>
         <li><b>Type:</b> Dynamic & Interactive.</li>
         <li><b>Storage:</b> 100% On-Chain (SVG).</li>
-        <li><b>Concept:</b> A stateful NFT that reflects emotion. Owners can flip the state from <code>SAD</code> to <code>HAPPY</code>.</li>
-        <li><b>Key Lesson:</b> Base64 encoding, JSON construction in Solidity, and SVG image generation.</li>
+        <li><b>Concept:</b> A stateful NFT that reflects emotion. Owners can execute a transaction to flip the visual state from <code>SAD</code> to <code>HAPPY</code>.</li>
+        <li><b>Focus:</b> Base64 encoding, JSON construction in Solidity, and SVG image generation.</li>
       </ul>
     </td>
   </tr>
@@ -63,9 +74,9 @@ This repository houses two distinct implementations, representing the "History" 
 
 ---
 
-## 🌐 Live Deployments (Sepolia)
+## 🌐 Live Deployments
 
-Verified contracts deployed on the Sepolia Testnet.
+Verified contracts deployed on the **Sepolia Testnet**.
 
 | **Collection** | **Contract Address** | **View on Etherscan** |
 | :--- | :--- | :--- |
@@ -78,22 +89,27 @@ Verified contracts deployed on the Sepolia Testnet.
 
 ### 1. On-Chain Metadata (MoodNFT)
 Unlike traditional NFTs that link to a URL (which can go offline), **MoodNFT** generates its image using code.
-* The Smart Contract constructs an **SVG** (Scalable Vector Graphic) string.
+* The Smart Contract constructs an **SVG** (Scalable Vector Graphic) string dynamically.
 * It utilizes `Base64` encoding to bundle the image and JSON metadata together.
 * The browser renders this `data:application/json;base64,...` string directly, ensuring the NFT lives as long as Ethereum exists.
 
 ### 2. State Flipping Logic
-The NFT has memory. It tracks its current "Mood".
+The NFT has persistent memory. It tracks its current "Mood" enum state.
 
 ```solidity
 // Simplified Logic
 function flipMood(uint256 tokenId) public {
+    // Only the owner can flip the mood
+    if (!_isApprovedOrOwner(msg.sender, tokenId)) {
+        revert MoodNft__CantFlipMoodIfNotOwner();
+    }
+
     if (s_tokenState[tokenId] == Mood.HAPPY) {
         s_tokenState[tokenId] = Mood.SAD;
     } else {
         s_tokenState[tokenId] = Mood.HAPPY;
     }
-    // The image URI updates automatically based on this state!
+    // The tokenURI() function reads this state to decide which SVG to render!
 }
 
 ```
@@ -102,7 +118,7 @@ function flipMood(uint256 tokenId) public {
 
 ## 🧩 Metadata Architecture
 
-The **MoodNFT** does not use IPFS. Instead, it constructs the JSON response entirely within the Solidity smart contract.
+The **MoodNFT** does not use IPFS. Instead, it constructs the JSON response entirely within the Solidity smart contract using OpenZeppelin's `Base64` library.
 
 ```mermaid
 graph LR
@@ -120,6 +136,10 @@ graph LR
     Base64 -- "image_data" --> JSON
     JSON --> Base64
     Base64 --> URI
+    
+    style Contract fill:#2d1b4e,stroke:#9d4edd,stroke-width:2px
+    style State fill:#1a1a1a,stroke:#b298dc
+    style SVG fill:#1a1a1a,stroke:#fff
 
 ```
 
@@ -144,30 +164,21 @@ This project was built to master the core competencies of a Senior Smart Contrac
 
 
 
-<img src="https://raw.githubusercontent.com/rajput2107/rajput2107/master/Assets/Developer.gif" width="60" />
+<b>Engineered by NEXTECHARHITECT</b>
+
+
+
+
+<i>Smart Contract Developer · Solidity · Foundry · Web3 Engineering</i>
 
 
 
 
 
-<h3>Engineered by NexTechArchitect</h3>
-<p><i>Smart Contract Developer • Solidity • Web3 Engineering</i></p>
 
 
-
-
-<a href="https://github.com/NexTechArchitect">
-<img src="https://skillicons.dev/icons?i=github" height="40" />
-</a>
-&nbsp;&nbsp;
-<a href="https://linkedin.com/in/amit-kumar-811a11277">
-<img src="https://skillicons.dev/icons?i=linkedin" height="40" />
-</a>
-&nbsp;&nbsp;
-<a href="https://x.com/itZ_AmiT0">
-<img src="https://skillicons.dev/icons?i=twitter" height="40" />
-</a>
-
+<a href="https://github.com/NexTechArchitect">GitHub</a> •
+<a href="https://www.google.com/search?q=https://twitter.com/NexTechArchitect">Twitter</a>
 </div>
 
 ```
